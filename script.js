@@ -10,6 +10,7 @@ function clearGrid() {
 function createGrid(side) {
 
     clearGrid();
+    const maxPercentage = 100;
 
     for(let i = 0; i < side * side; i++) {
 
@@ -24,14 +25,16 @@ function createGrid(side) {
 
 function handleHover(event) {
 
-    if(event.target.classList.contains("grid-square")) {
+    const square = event.target;
+    if(square.classList.contains("grid-square")) {
 
         let r = Math.floor(Math.random() * 256);
         let g = Math.floor(Math.random() * 256);
         let b = Math.floor(Math.random() * 256);
 
-        event.target.style.backgroundColor = "rgb(" + r.toString() + "," + g.toString() + "," + b.toString() + ")";
-        //event.target.classList.add("black-bg");    
+        square.style.backgroundColor = "rgb(" + r.toString() + "," + g.toString() + "," + b.toString() + ")";
+        square.style.opacity = (+square.style.opacity + 0.1).toString();
+        //event.target.classList.add("black-bg");
     }
 }
 
@@ -52,8 +55,9 @@ function changeSide() {
 
 const containerDiv = document.querySelector("#grid-container");
 const gridButton = document.querySelector("#prompt");
+
 containerDiv.addEventListener("mouseover", handleHover);
 gridButton.addEventListener("click", changeSide);
+
 const defaultSide = 32;
-const maxPercentage = 100;
 createGrid(defaultSide);
