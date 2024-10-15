@@ -1,0 +1,38 @@
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#grid-container,
+#prompt {
+
+    margin: 3% auto;
+}
+
+#prompt {
+
+    width: 100px;
+    display: block;
+}
+#grid-container {
+
+    box-sizing: content-box;
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.grid-square {
+
+    border: 1px solid black;
+}
+
+.red-bg {
+
+    background-color: red;
+}
